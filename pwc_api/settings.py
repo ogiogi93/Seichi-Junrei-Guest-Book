@@ -73,14 +73,7 @@ WSGI_APPLICATION = 'pwc_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'pwc',
-        'USER': 'Ogiwara', 'HOST': 'localhost', 'PORT': '5432',
-        'PASSWORD': '',
-    }
-}
+DATABASES = database.DATABASES
 
 
 # Password validation
