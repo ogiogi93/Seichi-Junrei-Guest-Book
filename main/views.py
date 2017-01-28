@@ -10,8 +10,9 @@ from main.form import UploadFaceImage
 from main.find_similar_face import FindSimilarFace
 from django.shortcuts import render_to_response, redirect
 
-UPLOADE__FACE_DIR = '/Users/Ogiwara/Desktop/Pwc_Hackthon/pwc_api/static/images/face/'
-UPLOADE__IMAGE_DIR = '/Users/Ogiwara/Desktop/Pwc_Hackthon/pwc_api/static/images/picture/'
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+UPLOADE__FACE_DIR = BASE_DIR + '/static/images/face/'
+UPLOADE__IMAGE_DIR = BASE_DIR + '/static/images/picture/'
 FACE_LIST_ID = 'pwc_hackthon_face_list'
 
 
