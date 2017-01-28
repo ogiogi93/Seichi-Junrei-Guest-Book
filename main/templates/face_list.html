@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+    {% for face in face_list %}
+        <a href="{% url 'get_similar_list' %}?path={{ face.path }}"><img src="/static/images/{{ face.path }}" alt="" width="280" height="320"></a>
+    {% endfor %}
+{% endblock %}
+
+</body>
+</html>

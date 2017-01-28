@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ユーザープロフィール写真をアップロードする</title>
+</head>
+<body>
+<h2>ユーザプロフィール写真を登録</h2>
+<form method="post" action="{% url 'user_face_file_upload' %}"
+      enctype="multipart/form-data">
+    {% csrf_token %}
+    <input class="form-control" type="file" name="face_image_path" value="">
+    <button type="submit" class="btn btn-primary btn-lg btn-info btn-block button"
+            id="edit">
+        <span id="default">保存する</span>
+    </button>
+</form>
+
+</body>
+</html>

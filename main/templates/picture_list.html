@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+    {% for face in face_list %}
+        <img src="/static/images/{{ face.path }}" alt="" width="280" height="320">
+    {% endfor %}
+{% endblock %}
+
+</body>
+</html>
