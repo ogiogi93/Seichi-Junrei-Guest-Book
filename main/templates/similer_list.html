@@ -9,6 +9,14 @@
     {% for similer in similer_list %}
         <img src="/static/images/{{ similer.path }}" alt="" width="280" height="320">
         <h3> 類似度: {{ similer.conf }}</h3>
+        <h5> 怒り: {{ similer.anger }}</h5>
+        <h5> 軽蔑: {{ similer.contempt }}</h5>
+        <h5> 嫌悪感: {{ similer.disgust }}</h5>
+        <h5> 恐怖: {{ similer.fear }}</h5>
+        <h5> 幸せ: {{ similer.happiness }}</h5>
+        <h5> 普通: {{ similer.neutral }}</h5>
+        <h5> 悲しみ: {{ similer.sadness }}</h5>
+        <h5> 驚き: {{ similer.surprise }}</h5>
     {% endfor %}
 {% endblock %}
 

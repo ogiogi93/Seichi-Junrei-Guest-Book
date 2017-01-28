@@ -8,6 +8,7 @@ from create_face_list import CreateFaceList
 from main.get_face import GetFaceList
 from main.form import UploadFaceImage
 from main.find_similar_face import FindSimilarFace
+from main.emotion import DetectEmotion
 from django.shortcuts import render_to_response, redirect
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -78,6 +79,19 @@ def file_upload(request):
         insert_data = PersistedFace.objects.all().filter(persisted_id='null')
         insert_data.update(persisted_id=picture_id) if picture_id != 'null' else insert_data.update(
             persisted_id='no face')
+
+        # 感情を推定し、DBに保管する
+        if picture_id != 'null':
+            emotion = DetectEmotion().detect_emotion(file_path=image_path)
+            insert_data = PersistedFace.objects.all().filter(persisted_id=picture_id)
+            insert_data.update(anger=emotion['anger'],
+                               contempt=emotion['contempt'],
+                               disgust=emotion['disgust'],
+                               fear=emotion['fear'],
+                               happiness=emotion['happiness'],
+                               neutral=emotion['neutral'],
+                               sadness=emotion['sadness'],
+                               surprise=emotion['surprise'])
 
         df_face_path = GetFaceList().get_face_list(db_table='main_persistedface')
         path_list = []
@@ -167,6 +181,14 @@ def get_similar_list(request):
             _dict = {}
             _dict['path'] = df_similar_merged['path'].ix[index]
             _dict['conf'] = df_similar_merged['confidence'].ix[index]
+            _dict['anger'] = df_similar_merged['anger'].ix[index]
+            _dict['contempt'] = df_similar_merged['contempt'].ix[index]
+            _dict['disgust'] = df_similar_merged['disgust'].ix[index]
+            _dict['fear'] = df_similar_merged['fear'].ix[index]
+            _dict['happiness'] = df_similar_merged['happiness'].ix[index]
+            _dict['neutral'] = df_similar_merged['neutral'].ix[index]
+            _dict['sadness'] = df_similar_merged['sadness'].ix[index]
+            _dict['surprise'] = df_similar_merged['surprise'].ix[index]
             similer_list.append(_dict)
         context = {
             'similer_list': similer_list
