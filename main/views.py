@@ -197,5 +197,10 @@ def get_similar_list(request):
     return None
 
 
-
-
+def take_picture(request):
+    """
+    Webカメラを通じて写真を撮影する
+    :param request:
+    :return:
+    """
+    return render(request, 'camera.html')

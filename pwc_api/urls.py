@@ -19,6 +19,7 @@ from main.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^camera/', take_picture, name='take_picture'),
     url(r'^upload/user/$', user_face_file_upload, name='user_face_file_upload'),
     url(r'^upload/picture/$', file_upload, name='file_upload'),
     url(r'^get/face_list/$', get_face_list, name='get_face_list'),
