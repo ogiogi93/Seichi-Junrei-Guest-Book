@@ -44,6 +44,12 @@ def ubser_assging(request):
 def uper_page(request):
     return render(request, 'main/uper.html')
 
+def sel_pic_page(request):
+    return render(request, 'main/sel-pic.html')
+
+def my_pic_page(request):
+    return render(request, 'main/my-pic.html')
+
 
 def user_face_file_upload(request):
     """
