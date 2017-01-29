@@ -17,4 +17,5 @@ config/key.py
 main/migrations/00*
 static/images/face/*
 static/images/picture/*
+uber-assign.bak/*
 

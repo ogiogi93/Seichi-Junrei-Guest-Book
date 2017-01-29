@@ -4,6 +4,16 @@
 {% block title %}Seichi Junrei{% endblock title %}
 
 {% block extrahead %}
+    <style>
+        .image-upload > input {
+            display: none;
+        }
+
+        .image-upload img {
+            width: 80px;
+            cursor: pointer;
+        }
+    </style>
 {% endblock %}
 {% block content %}
     <!-- ナビ -->
@@ -17,7 +27,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"><img src="img/logo-s.png" alt="聖地 Search"/></a>
+                <a class="navbar-brand" href="#"><img src="/static/images/logo-s.png" alt="聖地 Search"/></a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
@@ -53,9 +63,11 @@
         <div>
             <a href="uber-assign.html">
                 <div class="img-map text-center map1 maps"><img src="/static/images/map1.png" alt="Map1"/></div>
-                <div class="img-map text-center map2 maps" style="display:none;"><img src="/static/images/map2.png" alt="Map2"/>
+                <div class="img-map text-center map2 maps" style="display:none;"><img src="/static/images/map2.png"
+                                                                                      alt="Map2"/>
                 </div>
-                <div class="img-map text-center map3 maps" style="display:none;"><img src="/static/images/map3.png" alt="Map3"/>
+                <div class="img-map text-center map3 maps" style="display:none;"><img src="/static/images/map3.png"
+                                                                                      alt="Map3"/>
                 </div>
             </a>
         </div>
@@ -89,7 +101,17 @@
 
         <div class="divided shoot">
             <div class="container">
-                <div class="img-pic text-center"><img src="/static/images/pic.png" alt="Caputure button"/></div>
+                <form method="post" action="{% url 'file_upload' %}"
+                      enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="image-upload">
+                        <label for="file-input">
+                            <div class="img-pic text-center"><img src="/static/images/pic.png" alt="Caputure button"/>
+                            </div>
+                        </label>
+                        <input type="file" id="file-input take-picture" accept="image/*" name="image_path">
+                    </div>
+                </form>
             </div>
         </div>
     </div>
