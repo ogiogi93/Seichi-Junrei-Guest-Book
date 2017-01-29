@@ -1,0 +1,81 @@
+body.common {
+  background-color: yellow;
+}
+
+body.uber-assign {
+  background-color: black;
+  color: rgb(251, 251, 251);
+}
+
+# HEADER ============
+.nav-settings {
+  display:none;
+}
+
+.page-header {
+    margin: 10px 0 10px;
+}
+
+.h1, h1 {
+    font-size: 24px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+body > .container {
+  padding: 60px 15px 0;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.footer {
+  left: 0px;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+
+.margintop {
+  margin-top: 5px;
+}
+
+
+.img-map img {
+  width: 320px;
+  height: auto;
+}
+
+.divided {
+    padding-top: 9px;
+    margin: 10px 0 10px;
+    border-top: 1px solid #eee;
+}
+
+.shoot {
+  position: absolute;
+  bottom: 60px;
+  width: 100%;
+}
+
+.shoot .container {
+  position: static
+}
+
+.img-pic img {
+  width: 80;
+  height: 70px;
+
+}
+
+
+

@@ -17,6 +17,34 @@ UPLOADE__IMAGE_DIR = BASE_DIR + '/static/images/picture/'
 FACE_LIST_ID = 'pwc_hackthon_face_list'
 
 
+def top_page(request):
+    return render(request, 'main/top.html')
+
+
+def cate_page(request):
+    return render(request, 'main/cate.html')
+
+
+def setting_page(request):
+    return render(request, 'main/settings.html')
+
+
+def pic_page(request):
+    return render(request, 'main/pic.html')
+
+
+def move_page(request):
+    return render(request, 'main/move.html')
+
+
+def ubser_assging(request):
+    return render(request, 'main/uber-assign.html')
+
+
+def uper_page(request):
+    return render(request, 'main/uper.html')
+
+
 def user_face_file_upload(request):
     """
     プロフィール写真をアップロードする
@@ -204,4 +232,4 @@ def take_picture(request):
     :return:
     """
     file_upload(request)
-    return render(request, 'camera.html')
+    return render(request, 'main/templates/camera.html')

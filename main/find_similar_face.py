@@ -22,8 +22,6 @@ class FindSimilarFace(object):
         :param face_list_id:
         :return:
         """
-        print(face_id)
-        print(face_list_id)
         url = "https://westus.api.cognitive.microsoft.com/face/v1.0/findsimilars"
         body = json.dumps({
             "faceId": face_id,

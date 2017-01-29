@@ -19,6 +19,13 @@ from main.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', top_page, name='top_page'),
+    url(r'^cate/', cate_page, name='cate_page'),
+    url(r'^setting/', setting_page, name='setting_page'),
+    url(r'^pic/', pic_page, name='pic_page'),
+    url(r'^move/', move_page, name='move_page'),
+    url(r'^uber/', ubser_assging, name='uber_page'),
+    url(r'^uper/', uper_page, name='uper_page'),
     url(r'^camera/', take_picture, name='take_picture'),
     url(r'^upload/user/$', user_face_file_upload, name='user_face_file_upload'),
     url(r'^upload/picture/$', file_upload, name='file_upload'),

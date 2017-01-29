@@ -1,0 +1,80 @@
+{% load staticfiles %}
+<?xml version='1.0' encoding='UTF8'?>
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'
+        'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html lang='ja' xml:lang='ja' xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+    <title>Seichi Junrei</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+
+    <!-- Bootstrap -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel='stylesheet' {% static 'css/common.css' %} }} type='text/css' media='all'/>
+</head>
+<body class="uber-assign">
+
+
+<!-- Begin page content -->
+<div class="container">
+    <div class="page-header">
+        <h1>UBER</h1>
+    </div>
+
+
+    <div>
+        <a href="javascript: alert('Uber comming to you！！!');">
+            <div class="img-map text-center map1 maps"><img src="/static/images/map1.png" alt="Map1"/></div>
+            <div class="img-map text-center map2 maps" style="display:none;"><img src="/static/images/map2.png"
+                                                                                  alt="Map2"/></div>
+            <div class="img-map text-center map3 maps" style="display:none;"><img src="/static/images/map3.png"
+                                                                                  alt="Map3"/></div>
+        </a>
+    </div>
+
+    <div class="divided">
+        <div class="col-md-6 text-center margintop">
+            <a href="javascript:$('.maps').hide();$('.map1').show();">
+                <button type="button" class="btn btn-success form-control">Suga shrine</button>
+            </a>
+        </div>
+        <div class="col-md-6 text-center margintop">
+            <a href="javascript:$('.maps').hide();$('.map2').show();">
+                <button type="button" class="btn btn-success form-control">Yoyogi Sta.</button>
+            </a>
+        </div>
+        <div class="col-md-6 text-center margintop">
+            <a href="javascript:$('.maps').hide();$('.map3').show();">
+                <button type="button" class="btn btn-success form-control">Shinjuku Sta.</button>
+            </a>
+        </div>
+    </div>
+
+    <div class="divided shoot">
+        <div class="container">
+            <div class="img-pic text-center"><img src="/static/images/pic.png" alt="Caputure button"/></div>
+        </div>
+    </div>
+</div>
+
+<div id="push"></div>
+
+
+<!-- フッター部 -->
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted">Copyright Felix System.Ltd.,All Rights Reserved.</p>
+    </div>
+</footer>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+</body>
+</html>
+
+
