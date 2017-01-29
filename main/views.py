@@ -325,4 +325,4 @@ def take_picture(request):
     :return:
     """
     file_upload(request)
-    return render(request, 'main/templates/camera.html')
+    return render(request, 'camera.html')
