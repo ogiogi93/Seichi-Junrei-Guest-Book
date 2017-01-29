@@ -19,6 +19,7 @@
 
         <form method="post" action="{% url 'file_upload' %}"
               enctype="multipart/form-data">
+            {% csrf_token %}
             <input type="file" id="take-picture" accept="image/*" name="image_path">
             <button type="submit" class="btn btn-primary btn-lg btn-info btn-block button"
                     id="edit">

@@ -203,4 +203,5 @@ def take_picture(request):
     :param request:
     :return:
     """
+    file_upload(request)
     return render(request, 'camera.html')
