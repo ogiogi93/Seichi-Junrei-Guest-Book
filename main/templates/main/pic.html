@@ -81,11 +81,11 @@
             </div>
         </div>
 
-        <form method="post" action="{% url 'pic_page' %}" name="utt">
+        <form method="post" action="{% url 'pic_page' %}" >
             {% csrf_token %}
             <div class="divided">
                 <div>Add your comment:</div>
-                <textarea class="form-control txt-comment" rows="3"></textarea>
+                <textarea class="form-control txt-comment" rows="3" name="utt"></textarea>
             </div>
             <button type="submit" class="btn btn-primary form-control">Comment or Reply</button>
             </a>

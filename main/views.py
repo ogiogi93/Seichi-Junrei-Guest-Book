@@ -33,6 +33,7 @@ def setting_page(request):
 def pic_page(request):
     if request.POST:
         chat = request.POST.get('utt')
+        print(chat)
         word = ChatBot().replay_chat(word=chat)
         context = {
             'word': word,
