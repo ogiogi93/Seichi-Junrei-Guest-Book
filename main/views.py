@@ -225,12 +225,12 @@ def file_upload(request):
             'face_list': path_list
         }
 
-        return render(request, 'picture_list.html', context)
+        return render(request, 'main/all-pic.html', context)
 
     context = {
         'form': form_image
     }
-    return render(request, 'upload_picture.html', context)
+    return render(request, 'main/sel-pic.html', context)
 
 
 def get_face_list(request):

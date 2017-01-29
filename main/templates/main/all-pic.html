@@ -65,9 +65,18 @@
             </div>
         </div>
 
-        <div class="divided ">
+        <div class="divided">
             <div class="container">
-                <div class="img-pic text-center"><img src="/static/images/pic.png" alt="Caputure button"/></div>
+                <form method="post" action="{% url 'file_upload' %}"
+                      enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="img-pic text-center"><img src="/static/images/pic.png" alt="Caputure button"/></div>
+                    <input type="file" id="take-picture" accept="image/*" name="image_path">
+                    <button type="submit" class="btn btn-primary btn-lg btn-info btn-block button"
+                            id="edit">
+                        <span id="default">保存する</span>
+                    </button>
+                </form>
             </div>
         </div>
     </div>
