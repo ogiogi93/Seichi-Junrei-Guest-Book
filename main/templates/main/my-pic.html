@@ -59,6 +59,7 @@
                 {% for similer in similer_list %}
                     <span class="col-md-1 col1 col">
         <img src="/static/images/{{ similer.path }}" alt="" width="280" height="320">
+        <h5> 類似度: {{ similer.conf }}</h5>
         <h5> 幸せ: {{ similer.happiness }}</h5>
         </span>
                 {% endfor %}

@@ -94,6 +94,9 @@ def my_pic_page(request):
         df_picture_path = GetFaceList().get_face_list(db_table='main_persistedface')
         df_similar_merged = pd.merge(df_similar_picture, df_picture_path, on='persisted_id')
 
+        # 類似度が0.6以上が同一人物だと判断
+        df_similar_merged = df_similar_merged[df_similar_merged['conf'] > 0.6].reset_index()
+
         similer_list = []
         for index in df_similar_merged.index:
             _dict = {}
