@@ -60,7 +60,8 @@
                 <ul>
                     <li>
 
-                        The pedestrian bridge in 'Your name' was too familiar to me, and I found it was a pedestrian crossing from Shinano to Jingu Stadium!
+                        The pedestrian bridge in 'Your name' was too familiar to me, and I found it was a pedestrian
+                        crossing from Shinano to Jingu Stadium!
                         <input type="radio" name="rad" value="1" checked class="i-r"/>
                         <ul class="com1">
                             <li>I always walk by
@@ -68,7 +69,7 @@
                         </ul>
                     <li>"Kimi-no-na-wa" Seichi Junrei
                         <input type="radio" name="rad" value="2" class="i-r"/>
-                        <ul  class="com2">
+                        <ul class="com2">
                         </ul>
                     <li>Greeting from Honduras!
                         <input type="radio" name="rad" value="3" class="i-r"/>
@@ -80,19 +81,18 @@
             </div>
         </div>
 
-        <form method="post" action="{% url 'pic_page' %}">
+        <form method="post" action="{% url 'pic_page' %}" name="utt">
             {% csrf_token %}
             <div class="divided">
                 <div>Add your comment:</div>
-                <textarea class="form-control txt-comment" rows="3" ></textarea>
+                <textarea class="form-control txt-comment" rows="3"></textarea>
             </div>
-            <a href="javascript:apis.rep();">
-                <button type="submit" class="btn btn-primary form-control">Comment or Reply</button>
+            <button type="submit" class="btn btn-primary form-control">Comment or Reply</button>
             </a>
         </form>
+    <h3> {{ word }}</h3>
     </div>
 
     <div id="push"></div>
-    <script src="{% static 'js/seichi.js' %}"></script>
 {% endblock content %}
 

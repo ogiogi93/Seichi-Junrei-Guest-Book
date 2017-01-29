@@ -35,5 +35,4 @@ urlpatterns = [
     url(r'^get/face_list/$', get_face_list, name='get_face_list'),
     url(r'^get/picture_list/$', get_picture_list, name='get_picture_list'),
     url(r'^get/similar_list/$', get_similar_list, name='get_similar_list'),
-    url(r'^api/bot_chat/$', replay_chat, name='replay_chat'),
 ]

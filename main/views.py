@@ -31,13 +31,15 @@ def setting_page(request):
 
 
 def pic_page(request):
-    return render(request, 'main/pic.html')
-
-def replay_chat(request):
     if request.POST:
         chat = request.POST.get('utt')
-        replay = ChatBot().replay_chat(word=chat)
-        return replay
+        word = ChatBot().replay_chat(word=chat)
+        context = {
+            'word': word,
+        }
+        return render(request, 'main/pic.html', context)
+    return render(request, 'main/pic.html')
+
 
 def all_picture_page(request):
     """
