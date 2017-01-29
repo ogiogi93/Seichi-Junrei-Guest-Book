@@ -20,8 +20,7 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                        aria-expanded="false" aria-controls="navbar">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -36,8 +35,7 @@
                     <li class="nav-move"><a href="{% url 'move_page' %}">Next Seichi</a></li>
                     <li class="nav-settings"><a href="{% url 'setting_page' %}">Settings</a></li>
                     <li class="dropdown" style="display:none;">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown
-                            <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="#">Action</a></li>
                             <li><a href="#">Another action</a></li>
@@ -63,12 +61,8 @@
         <div>
             <a href="uber-assign.html">
                 <div class="img-map text-center map1 maps"><img src="/static/images/map1.png" alt="Map1"/></div>
-                <div class="img-map text-center map2 maps" style="display:none;"><img src="/static/images/map2.png"
-                                                                                      alt="Map2"/>
-                </div>
-                <div class="img-map text-center map3 maps" style="display:none;"><img src="/static/images/map3.png"
-                                                                                      alt="Map3"/>
-                </div>
+                <div class="img-map text-center map2 maps" style="display:none;"><img src="/static/images/map2.png" alt="Map2"/></div>
+                <div class="img-map text-center map3 maps" style="display:none;"><img src="/static/images/map3.png" alt="Map3"/></div>
             </a>
         </div>
         <div class="divided">
@@ -99,19 +93,9 @@
             </div>
         </div>
 
-        <div class="divided shoot">
+        <div class="divided">
             <div class="container">
-                <form method="post" action="{% url 'file_upload' %}"
-                      enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <div class="image-upload">
-                        <label for="file-input">
-                            <div class="img-pic text-center"><img src="/static/images/pic.png" alt="Caputure button"/>
-                            </div>
-                        </label>
-                        <input type="file" id="file-input take-picture" accept="image/*" name="image_path">
-                    </div>
-                </form>
+                <div class="img-pic text-center"><img src="/static/images/pic.png" alt="Caputure button"/></div>
             </div>
         </div>
     </div>
