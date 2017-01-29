@@ -17,17 +17,14 @@
             picture with your device's camera and a preview will be shown through createObjectURL or a FileReader object
             (choosing local files supported too).</p>
 
-        <p>
-            <input type="file" id="take-picture" accept="image/*">
-        </p>
-
-        <h2>Preview:</h2>
-        <p>
-            <img src="about:blank" alt="" id="show-picture">
-        </p>
-
-        <p id="error"></p>
-
+        <form method="post" action="{% url 'file_upload' %}"
+              enctype="multipart/form-data">
+            <input type="file" id="take-picture" accept="image/*" name="image_path">
+            <button type="submit" class="btn btn-primary btn-lg btn-info btn-block button"
+                    id="edit">
+                <span id="default">保存する</span>
+            </button>
+        </form>
     </section>
 
     <p class="footer">All the code is available in the <a
