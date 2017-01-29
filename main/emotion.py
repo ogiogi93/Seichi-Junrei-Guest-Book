@@ -4,7 +4,6 @@ import json
 import requests
 import urllib
 import sys
-import cv2
 import numpy as np
 import pandas as pd
 import operator
