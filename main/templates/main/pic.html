@@ -45,6 +45,12 @@
 
     <!-- Begin page content -->
     <div class="container">
+        <ul class="nav nav-tabs">
+            <li class="tab-com active"><a href="{% url 'pic_page' %}">Comments</a></li>
+            <li class="tab-myphoto"><a href="{% url 'my_pic_page' %}">MyPhoto</a></li>
+            <li class="tab-selphoto"><a href="{% url 'sel_pic_page' %}">cloud</a></li>
+            <li class="tab-other"><a href="shared-pic.html">Other shared photos on this location</a></li>
+        </ul>
         <div class="page-header">
             <h1>Seichi</h1>
         </div>
