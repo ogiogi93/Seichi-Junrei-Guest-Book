@@ -9,6 +9,7 @@ from main.get_face import GetFaceList
 from main.form import UploadFaceImage
 from main.find_similar_face import FindSimilarFace
 from main.emotion import DetectEmotion
+from main.chat_bot import ChatBot
 from django.shortcuts import render_to_response, redirect
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -30,7 +31,15 @@ def setting_page(request):
 
 
 def pic_page(request):
+    if request.POST:
+        chat = request.POST.get('chat')
+        replay = ChatBot().replay_chat(word=chat)
+        context ={
+            'replay': replay
+        }
+        return render(request, 'main/pic.html', context)
     return render(request, 'main/pic.html')
+
 
 
 def move_page(request):
@@ -44,11 +53,66 @@ def ubser_assging(request):
 def uper_page(request):
     return render(request, 'main/uper.html')
 
+
 def sel_pic_page(request):
-    return render(request, 'main/sel-pic.html')
+    """
+    プロフィール画像を返す
+    :param request:
+    :return:
+    """
+    df_face_path = GetFaceList().get_face_list(db_table='main_face')
+    path_list = []
+    for path in list(df_face_path['path']):
+        path_dict = {}
+        path_dict['path'] = path
+        path_list.append(path_dict)
+
+    context = {
+        'face_list': path_list
+    }
+
+    return render(request, 'main/sel-pic.html', context)
+
 
 def my_pic_page(request):
-    return render(request, 'main/my-pic.html')
+    """
+    類似度計算をして自分の画像を抽出する
+    :param request:
+    :return:
+    """
+    if request.GET:
+        user_face_path = request.GET['path']
+        face_id = Face.objects.get(path=user_face_path).face_id
+        r = FindSimilarFace().get_similar_face(face_id=face_id, face_list_id=FACE_LIST_ID).json()
+        sim_list = []
+        for sim in r:
+            temp = sim['persistedFaceId'], sim['confidence']
+            sim_list.append(temp)
+        # 類似度計算結果を取得
+        df_similar_picture = (pd.DataFrame(sim_list, columns=['persisted_id', 'confidence']))
+        # 画像を取得
+        df_picture_path = GetFaceList().get_face_list(db_table='main_persistedface')
+        df_similar_merged = pd.merge(df_similar_picture, df_picture_path, on='persisted_id')
+
+        similer_list = []
+        for index in df_similar_merged.index:
+            _dict = {}
+            _dict['path'] = df_similar_merged['path'].ix[index]
+            _dict['conf'] = df_similar_merged['confidence'].ix[index]
+            _dict['anger'] = df_similar_merged['anger'].ix[index]
+            _dict['contempt'] = df_similar_merged['contempt'].ix[index]
+            _dict['disgust'] = df_similar_merged['disgust'].ix[index]
+            _dict['fear'] = df_similar_merged['fear'].ix[index]
+            _dict['happiness'] = df_similar_merged['happiness'].ix[index]
+            _dict['neutral'] = df_similar_merged['neutral'].ix[index]
+            _dict['sadness'] = df_similar_merged['sadness'].ix[index]
+            _dict['surprise'] = df_similar_merged['surprise'].ix[index]
+            similer_list.append(_dict)
+        context = {
+            'similer_list': similer_list
+        }
+        return render(request, 'main/my-pic.html', context)
+    return None
 
 
 def user_face_file_upload(request):

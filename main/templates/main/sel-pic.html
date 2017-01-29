@@ -6,76 +6,73 @@
 {% block extrahead %}
 {% endblock %}
 {% block content %}
-<!-- ナビ -->
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#"><img src="/static/images/logo-s.png" alt="聖地 Search"/></a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li class="nav-top active"><a href="{% url 'top_page' %}">Home</a></li>
-                <li class="nav-pic"><a href="{% url 'pic_page' %}">Shoot pictures</a></li>
-                <li class="nav-move"><a href="{% url 'move_page' %}">Next Seichi</a></li>
-                <li class="nav-settings"><a href="{% url 'setting_page' %}">Settings</a></li>
-                <li class="dropdown" style="display:none;">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown
-                        <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li class="dropdown-header">Nav header</li>
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div><!--/.nav-collapse -->
-    </div>
-</nav>
-<!-- Begin page content -->
-<div class="container">
-    <ul class="nav nav-tabs">
-        <li class="tab-com active"><a href="{% url 'pic_page' %}">Comments</a></li>
-        <li class="tab-myphoto"><a href="{% url 'my_pic_page' %}">MyPhoto</a></li>
-        <li class="tab-selphoto"><a href="{% url 'sel_pic_page' %}">cloud</a></li>
-        <li class="tab-other"><a href="shared-pic.html">Other shared photos on this location</a></li>
-    </ul>
-
-    <div class="page-header">
-        <h1>Select your photos</h1>
-    </div>
-
-    <div>
-        <div class="row row1">
-        <span class="col-md-1 col1 col">
-            <img src="img/picture.png"/>
-        </span>
-            <span class="col-md-1 col2 col">
-            <img src="img/picture.png"/>
-        </span>
-            <span class="col-md-1 col3 col">
-            <img src="img/picture.png"/>
-        </span>
-        </div>
-    </div>
-
-    <div class="divided ">
+    <!-- ナビ -->
+    <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
-            <div class="img-pic text-center"><img src="/static/images/pic.png" alt="Caputure button"/></div>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img src="/static/images/logo-s.png" alt="聖地 Search"/></a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="nav-top active"><a href="{% url 'top_page' %}">Home</a></li>
+                    <li class="nav-pic"><a href="{% url 'pic_page' %}">Shoot pictures</a></li>
+                    <li class="nav-move"><a href="{% url 'move_page' %}">Next Seichi</a></li>
+                    <li class="nav-settings"><a href="{% url 'setting_page' %}">Settings</a></li>
+                    <li class="dropdown" style="display:none;">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li class="divider"></li>
+                            <li class="dropdown-header">Nav header</li>
+                            <li><a href="#">Separated link</a></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+    <!-- Begin page content -->
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li class="tab-com active"><a href="{% url 'pic_page' %}">Comments</a></li>
+            <li class="tab-myphoto"><a href="{% url 'sel_pic_page' %}">UserList</a></li>
+            <li class="tab-other"><a href="shared-pic.html">Other shared photos on this location</a></li>
+        </ul>
+
+        <div class="page-header">
+            <h1>Select your photos</h1>
+        </div>
+
+        <div>
+            <div class="row row1">
+                {% for face in face_list %}
+                    <span class="col-md-3 col3 col">
+                    <a href="{% url 'my_pic_page' %}?path={{ face.path }}"><img
+                            src="/static/images/{{ face.path }}" alt=""
+                            width="400" height="400"></a>
+                    </span>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="divided ">
+            <div class="container">
+                <div class="img-pic text-center"><img src="/static/images/pic.png" alt="Caputure button"/></div>
+            </div>
         </div>
     </div>
-</div>
 
-<div id="push"></div>
+    <div id="push"></div>
 {% endblock content %}
 
