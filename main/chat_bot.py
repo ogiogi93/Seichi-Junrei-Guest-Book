@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-#from doco.client import Client
+from doco.client import Client
 from config.key import docomo_key
 
 

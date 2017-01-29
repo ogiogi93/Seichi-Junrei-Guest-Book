@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^uper/', uper_page, name='uper_page'),
     url(r'^sel_pic/', sel_pic_page, name='sel_pic_page'),
     url(r'^my_pic/', my_pic_page, name='my_pic_page'),
+    url(r'^all_pic/', all_picture_page, name='all_picture_page'),
     url(r'^camera/', take_picture, name='take_picture'),
     url(r'^upload/user/$', user_face_file_upload, name='user_face_file_upload'),
     url(r'^upload/picture/$', file_upload, name='file_upload'),

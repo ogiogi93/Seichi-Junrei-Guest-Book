@@ -41,6 +41,26 @@ def pic_page(request):
     return render(request, 'main/pic.html')
 
 
+def all_picture_page(request):
+    """
+    画像を返す
+    :param request:
+    :return:
+    """
+    # face_list = CreateFaceList().get_facelist(face_list_id=FACE_LIST_ID)
+    # df_face = pd.DataFrame(face_list['face_id'])
+    df_face_path = GetFaceList().get_face_list(db_table='main_persistedface')
+    path_list = []
+    for path in list(df_face_path['path']):
+        path_dict = {}
+        path_dict['path'] = path
+        path_list.append(path_dict)
+
+    context = {
+        'face_list': path_list
+    }
+
+    return render(request, 'main/all-pic.html', context)
 
 def move_page(request):
     return render(request, 'main/move.html')

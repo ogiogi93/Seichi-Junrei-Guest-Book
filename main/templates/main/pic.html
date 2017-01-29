@@ -47,7 +47,8 @@
     <div class="container">
         <ul class="nav nav-tabs">
             <li class="tab-com active"><a href="{% url 'pic_page' %}">Comments</a></li>
-            <li class="tab-myphoto"><a href="{% url 'sel_pic_page' %}">UserList</a></li>
+            <li class="tab-selphoto"><a href="{% url 'sel_pic_page' %}">UserList</a></li>
+            <li class="tab-myphoto"><a href="{% url 'all_picture_page' %}">AllPictures</a></li>
             <li class="tab-other"><a href="shared-pic.html">Other shared photos on this location</a></li>
         </ul>
         <div class="page-header">
@@ -86,13 +87,13 @@
             <button type="submit" class="btn btn-primary form-control">Comment or Reply</button>
         </form>
     </div>
+    {{ replay }}
 
 
     <div class="divided">
         <div class="container">
             <div class="img-pic text-center"><img src="/static/images/pic.png" alt="Caputure button"/></div>
         </div>
-    </div>
     </div>
 
     <div id="push"></div>
