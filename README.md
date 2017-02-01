@@ -3,5 +3,5 @@
 http://technology-hackathon.com/
 
 # DEMO(スマートフォン向けWebアプリ)<br>
-※現在、顔画像は非常時状態<br>
+※現在、顔画像は非表示時状態<br>
 http://pwc-seichi-jyunrei.ogiogi93.com/
